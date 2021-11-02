@@ -1,5 +1,4 @@
-﻿using StringCalculator;
-using System;
+﻿using System;
 
 namespace ConsoleApplication
 {
