@@ -1,0 +1,10 @@
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\bin\Debug\netcoreapp3.1\StringCalculator.deps.json
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\bin\Debug\netcoreapp3.1\StringCalculator.dll
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\bin\Debug\netcoreapp3.1\StringCalculator.pdb
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\obj\Debug\netcoreapp3.1\StringCalculator.csproj.AssemblyReference.cache
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\obj\Debug\netcoreapp3.1\StringCalculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\obj\Debug\netcoreapp3.1\StringCalculator.AssemblyInfoInputs.cache
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\obj\Debug\netcoreapp3.1\StringCalculator.AssemblyInfo.cs
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\obj\Debug\netcoreapp3.1\StringCalculator.csproj.CoreCompileInputs.cache
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\obj\Debug\netcoreapp3.1\StringCalculator.dll
+C:\Users\a.kuznetsov\source\repos\StringCalculatorTest\StringCalculator\obj\Debug\netcoreapp3.1\StringCalculator.pdb
