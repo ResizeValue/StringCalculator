@@ -1,6 +1,4 @@
-﻿using StringCalculatorSpace;
-using System;
-
+﻿
 namespace ConsoleApplication
 {
     class Program

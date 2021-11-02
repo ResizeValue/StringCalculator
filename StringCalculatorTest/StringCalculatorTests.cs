@@ -1,17 +1,16 @@
 using NUnit.Framework;
-using StringCalculatorSpace;
 using System;
 
 namespace StringCalculatorTests
 {
     public class StringCalculatorTests
     {
-        private StringCalculator calc;
+        private readonly StringCalculator.StringCalculator calc = new StringCalculator.StringCalculator();
 
         [SetUp]
         public void Setup()
         {
-            calc = new StringCalculator();
+
         }
 
         [Test]
@@ -23,7 +22,7 @@ namespace StringCalculatorTests
         }
 
         [Test]
-        public void Add_Number_ShouldReturnNumber()
+        public void Add_SingleNumber_ShouldReturnNumber()
         {
             int res = calc.Add("1");
 

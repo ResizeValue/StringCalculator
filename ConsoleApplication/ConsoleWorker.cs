@@ -1,18 +1,16 @@
-﻿using StringCalculatorSpace;
+﻿using StringCalculator;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleApplication
 {
     class ConsoleWorker
     {
-        private readonly StringCalculator calculator;
+        private readonly StringCalculator.StringCalculator calculator;
         private readonly ConsoleWrapper wrapper;
 
         public ConsoleWorker(ConsoleWrapper _wrapper)
         {
-            calculator = new StringCalculator();
+            calculator = new StringCalculator.StringCalculator();
             wrapper = _wrapper;
         }
 
@@ -32,7 +30,14 @@ namespace ConsoleApplication
                 }
                 else
                 {
-                    wrapper.ShowMessage("Result: " + calculator.Add(str) + "\n");
+                    try
+                    {
+                        wrapper.ShowMessage("Result: " + calculator.Add(str) + "\n");
+                    }
+                    catch(ArgumentException exception)
+                    {
+                        wrapper.ShowMessage(exception.Message);
+                    }
                 }
             }
         }
