@@ -1,5 +1,4 @@
-﻿
-namespace ConsoleApplication
+﻿namespace ConsoleApplication
 {
     class Program
     {
