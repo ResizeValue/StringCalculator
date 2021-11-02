@@ -22,13 +22,9 @@ namespace StringCalculator
 
         private int GetSum(List<int> nums)
         {
-            var sum = 0;
-
             nums = nums.Where(x => x <= 1000).ToList();
 
-            nums.ForEach(x => sum += x);
-
-            return sum;
+            return nums.Sum();
         }
 
         private List<int> GetArrayOfNumbers(string inputString)
@@ -51,56 +47,56 @@ namespace StringCalculator
             return intList;
         }
 
-        private List<string> SplitStringWithCustomDelimiters(string intputString)
+        private List<string> SplitStringWithCustomDelimiters(string inputString)
         {
-            var delimString = string.Empty;
-            string numbersString = string.Empty;
+            var delimitersString = string.Empty;
+            var numbersString = string.Empty;
 
-            for (int i = 0; i < intputString.Length; i++)
+            for (int i = 0; i < inputString.Length; i++)
             {
-                if(intputString[i] == '\n' && char.IsDigit(intputString[i + 1]))
+                if(inputString[i] == '\n' && char.IsDigit(inputString[i + 1]))
                 {
-                    var numberStringLenght = intputString.Length - i - 1;
+                    var numberStringLenght = inputString.Length - i - 1;
                     var numberStringStartIndex = i + 1;
 
-                    delimString = intputString.Substring(0, i);
-                    numbersString = intputString.Substring(numberStringStartIndex, numberStringLenght);
+                    delimitersString = inputString.Substring(0, i);
+                    numbersString = inputString.Substring(numberStringStartIndex, numberStringLenght);
                     break;
                 }
             }
 
-            if(delimString.Length == 1)
+            if(delimitersString.Length == 1)
             {
-                return numbersString.Split(delimString, StringSplitOptions.RemoveEmptyEntries).ToList();
+                return numbersString.Split(delimitersString, StringSplitOptions.RemoveEmptyEntries).ToList();
             }
             else
             {
-                var delims = SplitDelimiters(delimString);
+                var delims = SplitDelimiters(delimitersString);
 
                 return numbersString.Split(delims, StringSplitOptions.RemoveEmptyEntries).ToList();
             }
         }
 
-        private string[] SplitDelimiters(string delimString)
+        private string[] SplitDelimiters(string delimitersString)
         {
-            var indexOfFirstDelim = 1;
-            var indexOfLastDelim = delimString.Length - 2;
+            var indexOfFirstDelimiter = 1;
+            var indexOfLastDelimiter = delimitersString.Length - 2;
 
-            delimString = delimString.Substring(indexOfFirstDelim, indexOfLastDelim);
+            delimitersString = delimitersString.Substring(indexOfFirstDelimiter, indexOfLastDelimiter);
 
-            if (delimString.Contains("]["))
+            if (delimitersString.Contains("]["))
             {
-                return delimString.Split("][", StringSplitOptions.RemoveEmptyEntries);
+                return delimitersString.Split("][", StringSplitOptions.RemoveEmptyEntries);
             }
             else
             {
-                return new string[] { delimString };
+                return new string[] { delimitersString };
             }
         }
 
-        private void CheckForNegatives(List<int> nums)
+        private void CheckForNegatives(List<int> numbers)
         {
-            var negatives = nums.Where(x => x < 0).ToList();
+            var negatives = numbers.Where(x => x < 0).ToList();
 
             if (negatives.Count > 0)
             {
