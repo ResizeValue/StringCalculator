@@ -6,7 +6,7 @@ namespace StringCalculator
 {
     public class StringCalculator
     {
-        public int Add(string inputString)
+        public virtual int Add(string inputString)
         {
             if (inputString == "") 
             { 
@@ -22,9 +22,7 @@ namespace StringCalculator
 
         private int GetSum(List<int> nums)
         {
-            nums = nums.Where(x => x <= 1000).ToList();
-
-            return nums.Sum();
+            return nums.Where(x => x <= 1000).Sum();
         }
 
         private List<int> GetArrayOfNumbers(string inputString)
@@ -96,21 +94,13 @@ namespace StringCalculator
 
         private void CheckForNegatives(List<int> numbers)
         {
-            var negatives = numbers.Where(x => x < 0).ToList();
+            var negatives = numbers.Where(x => x < 0);
 
-            if (negatives.Count > 0)
+            if (negatives.Count() > 0)
             {
-                throw new ArgumentException("Negatives are not allowed: " + GetNegativesString(negatives));
+                throw new ArgumentException("Negatives are not allowed: " + string.Join(" ", negatives));
             }
         }
 
-        private string GetNegativesString(List<int> negatives)
-        {
-            string negativesString = string.Empty;
-
-            negatives.ForEach(x => negativesString += x.ToString() + " ");
-
-            return negativesString;
-        }
     }
 }

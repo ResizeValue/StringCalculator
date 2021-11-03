@@ -2,28 +2,28 @@
 
 namespace ConsoleApplication
 {
-    class ConsoleWorker
+    public class ConsoleWorker
     {
         private readonly StringCalculator.StringCalculator calculator;
         private readonly ConsoleWrapper wrapper;
 
-        public ConsoleWorker(ConsoleWrapper _wrapper)
+        public ConsoleWorker(ConsoleWrapper _wrapper, StringCalculator.StringCalculator _calculator)
         {
-            calculator = new StringCalculator.StringCalculator();
+            calculator = _calculator;
             wrapper = _wrapper;
         }
 
         public void Run()
         {
+            wrapper.ShowMessage("Enter comma separated numbers (enter to exit):");
+
             while (true)
             {
-                wrapper.ShowMessage("Enter comma separated numbers (enter to exit):");
+                var inputString = wrapper.ReadLine();
 
-                var str = Console.ReadLine();
+                inputString = (inputString.Contains("\\n") ? inputString.Replace("\\n", "\n") : inputString);
 
-                str = (str.Contains("\\n") ? str.Replace("\\n", "\n") : str);
-
-                if (str.Length == 0)
+                if (inputString.Length == 0)
                 {
                     break;
                 }
@@ -31,13 +31,16 @@ namespace ConsoleApplication
                 {
                     try
                     {
-                        wrapper.ShowMessage("Result: " + calculator.Add(str) + "\n");
+                        var result = calculator.Add(inputString);
+                        wrapper.ShowMessage("Result: " + result + "\n");
                     }
                     catch(ArgumentException exception)
                     {
                         wrapper.ShowMessage(exception.Message);
                     }
                 }
+
+                wrapper.ShowMessage("you can enter other numbers (enter to exit)?");
             }
         }
     }

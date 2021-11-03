@@ -13,7 +13,7 @@ namespace StringCalculatorTests
 
         }
 
-        [Test]
+        [Test, Timeout(1000)]
         public void Add_EmptyString_Zero()
         {
             int res = calc.Add("");
@@ -21,7 +21,7 @@ namespace StringCalculatorTests
             Assert.AreEqual(res, 0);
         }
 
-        [Test]
+        [Test, Timeout(1000)]
         public void Add_SingleNumber_ShouldReturnNumber()
         {
             int res = calc.Add("1");
@@ -29,7 +29,7 @@ namespace StringCalculatorTests
             Assert.AreEqual(res, 1);
         }
 
-        [Test]
+        [Test, Timeout(1000)]
         public void Add_MultipleNumbers_ShouldReturnSum()
         {
             int res = calc.Add("1,2,3,4");
@@ -37,7 +37,7 @@ namespace StringCalculatorTests
             Assert.AreEqual(res, 10);
         }
 
-        [Test]
+        [Test, Timeout(1000)]
         public void Add_NumbersWithDifferenceDelim_ShouldReturnSum()
         {
             int res = calc.Add("1\n2,3");
@@ -45,7 +45,7 @@ namespace StringCalculatorTests
             Assert.AreEqual(res, 6);
         }
 
-        [Test]
+        [Test, Timeout(1000)]
         public void Add_NumbersWithCustomDelim_ShouldReturnSum()
         {
             int res = calc.Add("//;\n1;2");
@@ -53,15 +53,15 @@ namespace StringCalculatorTests
             Assert.AreEqual(res, 3);
         }
 
-        [Test]
+        [Test, Timeout(1000)]
         public void Add_HasNegativeNumbers_ShouldThrowException()
         {
             var exception = Assert.Throws<ArgumentException>(() => { calc.Add("//;\n1;-2;-7"); });
 
-            Assert.AreEqual(exception.Message, "Negatives are not allowed: -2 -7 ");
+            Assert.AreEqual(exception.Message, "Negatives are not allowed: -2 -7");
         }
 
-        [Test]
+        [Test, Timeout(1000)]
         public void Add_ShouldIgnoreBiggerThenThousandNumber()
         {
             int res = calc.Add("//;\n1;2;3000");
@@ -69,7 +69,7 @@ namespace StringCalculatorTests
             Assert.AreEqual(res, 3);
         }
 
-        [Test]
+        [Test, Timeout(1000)]
         public void Add_NumbersWithMultipleDifferenceDelims_ShouldReturnSum()
         {
             int res = calc.Add("//[;;][%%%][*]\n1;;2%%%3*4");
